@@ -1,46 +1,87 @@
-# Getting Started with Create React App
+Cách sử dụng chart:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Với Chart1 (Chart2) dùng như sau:
 
-## Available Scripts
+Import Component tên Chart1, truyền vào các props (thông số) để tạo đồ thị, như:
 
-In the project directory, you can run:
+*title: Tên của đồ thị, kiểu string;
+*detail: Dữ liệu của đồ thị, là một array với các phần tử là từng object, với các cặp key - value kiểu:
+{
+     label1: Tên của nhãn cọc đồ thị bên tay trái, kiểu string
+     value1: Giá trị của cọc đồ thị bên tay trái, kiểu string | number
+     label2: Tên của nhãn cọc đồ thị bên tay phải, kiểu string
+     value2: Giá trị của cọc đồ thị bên tay phải, kiểu string | number
+}
 
-### `npm start`
+object này là 2 cọc đồ thị trái phải, thành 1 hàng ngàng trong đồ thị 1.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+đưa nó vào array, cần bao nhiêu hàng ngang thì thêm từng đó các object như trên.
+Ví dụ: 
+detail=[
+            {
+              label1: "Thực tế / Không thích mạo hiểm",
+              value1: 30,
+              label2: "Phiêu lưu / Tinh thần mạo hiểm",
+              value2: 70,
+            },
+            {
+              label1: "Tuân theo tự nhiên",
+              value1: 40,
+              label2: "Kế hoạch / Tự chủ",
+              value2: 60,
+            },
+            {
+              label1: "Hướng ngoại / Dễ gần",
+              value1: 48,
+              label2: "Hướng nội / Không thích chú ý",
+              value2: 52,
+            },
+]
+Tổng giá trị trong 1 object là 100. tự chia tỷ lệ theo đề bài đưa ra, như 30/70, 40/60...
+*type: Kiểu của đồ thị, chỉnh màu sắc cho đồ thị, với các giá trị tương ứng: 'kim', 'moc', 'thuy', 'hoa', 'tho'
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Ví dụ hoàn chỉnh:
+    <Chart1
+          title="Tính cách khuynh hướng"
+          detail={[
+            {
+              label1: "Thực tế / Không thích mạo hiểm",
+              value1: 30,
+              label2: "Phiêu lưu / Tinh thần mạo hiểm",
+              value2: 70,
+            },
+            {
+              label1: "Tuân theo tự nhiên",
+              value1: 40,
+              label2: "Kế hoạch / Tự chủ",
+              value2: 60,
+            },
+            {
+              label1: "Hướng ngoại / Dễ gần",
+              value1: 48,
+              label2: "Hướng nội / Không thích chú ý",
+              value2: 52,
+            },
+            {
+              label1: "Tư duy nhóm",
+              value1: 35,
+              label2: "Tư duy độc lập",
+              value2: 65,
+            },
+            {
+              label1: "Dễ đồng cảm",
+              value1: 70,
+              label2: "Thích thao túng",
+              value2: 30,
+            },
+            {
+              label1: "Nhạy cảm / Hay suy nghĩ",
+              value1: 36,
+              label2: "Giỏi xử lý căng thẳng",
+              value2: 64,
+            },
+          ]}
+          type="thuy"
+        />
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+        Good Luck!!!!
